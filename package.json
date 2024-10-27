@@ -17,6 +17,7 @@
   "license": "MIT",
   "author": "Casper Leerink <casperleerink@gmail.com>",
   "sideEffects": false,
+  "packageManager": "pnpm@9.12.2",
   "type": "commonjs",
   "exports": {
     ".": {
