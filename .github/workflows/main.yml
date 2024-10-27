@@ -45,18 +45,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Lint & Build
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          node-version: lts/*
-      - run: pnpm install
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Tools
+        uses: ./.github/setup
         # Linting can be skipped
       - run: pnpm lint --if-present
         if: github.event.inputs.test != 'false'
         # But not the build script, as semantic-release will crash if this command fails so it makes sense to test it early
-      - run: pnpm prepublishOnly --if-present
-
+      - run: pnpm prepublishOnly
   test:
     needs: build
     # The test matrix can be skipped, in case a new release needs to be fast-tracked and tests are already passing on main
@@ -86,11 +83,8 @@ jobs:
           git config --global core.autocrlf false
           git config --global core.eol lf
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          node-version: ${{ matrix.node }}
-      - run: pnpm install
+      - name: Setup Tools
+        uses: ./.github/setup
       - run: pnpm test --if-present
 
   release:
@@ -110,11 +104,8 @@ jobs:
           # Need to fetch entire commit history to
           # analyze every commit since last release
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          node-version: lts/*
-      - run: pnpm install
+      - name: Setup Tools
+        uses: ./.github/setup
       - run: pnpm audit signatures
         # Branches that will release new versions are defined in .releaserc.json
         # @TODO remove --dry-run after verifying everything is good to go
