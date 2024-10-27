@@ -40,7 +40,8 @@
     "link-watch": "plugin-kit link-watch",
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
-    "watch": "pkg-utils watch --strict"
+    "watch": "pkg-utils watch --strict",
+    "prepare": "husky"
   },
   "dependencies": {
     "@sanity-typed/types": "^6.4.1",
@@ -50,8 +51,11 @@
     "@tanstack/react-virtual": "^3.10.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@sanity/pkg-utils": "^6.11.4",
     "@sanity/plugin-kit": "^4.0.18",
+    "@sanity/semantic-release-preset": "^5.0.0",
     "@types/react": "^18.3.12",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
     "@typescript-eslint/parser": "^8.11.0",
@@ -61,6 +65,8 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "prettier-plugin-packagejson": "^2.5.3",
     "react": "^18.3.1",
