@@ -42,7 +42,8 @@
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
     "watch": "pkg-utils watch --strict",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "echo \"no test specified\""
   },
   "dependencies": {
     "@sanity-typed/types": "^6.4.1",
