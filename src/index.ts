@@ -42,3 +42,5 @@ export const iconPickerTyped = definePlugin<IconPickerOptions>(({configurations}
 })
 
 export const iconPicker = castFromTyped(iconPickerTyped)
+
+export {preview} from './preview'
