@@ -20,7 +20,13 @@ export const Results = ({
 }): ReactElement => {
   const filteredIcon = useMemo(() => {
     if (!query || query.length === 0) return icons
-    return icons.filter((icon) => icon.name.toLowerCase().includes(query.toLowerCase()))
+    const lowercaseQuery = query.toLowerCase()
+    return icons.filter((icon) => {
+      return (
+        icon.name.toLowerCase().includes(lowercaseQuery) ||
+        icon.tags?.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
+      )
+    })
   }, [icons, query])
 
   const parentRef = useRef<HTMLDivElement>(null)
