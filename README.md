@@ -1,3 +1,5 @@
+> This plugin is a port of the [sanity-plugin-icon-picker](https://github.com/christopherafbjur/sanity-plugin-icon-picker) plugin by @christopherafbjur. It makes some changes on the API design, for example not including icon packages by default and is updated to work on React 19 as well.
+
 # sanity-plugin-icons
 
 > This is a **Sanity Studio v3** plugin.
@@ -97,7 +99,6 @@ with default configuration for build & watch scripts.
 
 See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
 on how to run this plugin with hotreload in the studio.
-
 
 ### Release new version
 
